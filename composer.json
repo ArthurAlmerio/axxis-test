@@ -9,7 +9,10 @@
     }
   ],
   "autoload": {
-    "psr-4": {"": "src/"},
+    "psr-4": {
+      "": "src/",
+      "Axxis\\Bundle\\StockBundle\\": "src/Axxis/Bundle/StockBundle/"
+    },
     "classmap": [
       "src/AppKernel.php"
     ],

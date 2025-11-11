@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block main %}
+    {% dump(layout.getBlockIds()) %}
     {{ parent() }}
     {{ oro_windows_restore() }}
 {% endblock %}

@@ -1,0 +1,2 @@
+bundles:
+  - { name: Axxis\Bundle\StockBundle\AxxisStockBundle, priority: 255 }

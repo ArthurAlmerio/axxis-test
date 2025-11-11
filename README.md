@@ -1,49 +1,136 @@
-OroCommerce Sample Application
-==============================
+# 🧩 Axxis OroCommerce Project
 
-What Is Included?
---------------------
+This project is based on **OroCommerce 6.1.0**, running in a **Docker** environment.  
+It includes a custom bundle (`AxxisStockBundle`) that displays product stock levels via a public endpoint.
 
-This sample application includes OroCommerce Community Edition.
+---
 
-Other application distributions:
-  * orocommerce-enterprise-application - OroCommerce Enterprise Edition
-  * orocommerce-enterprise-nocrm-application - OroCommerce Enterprise Edition, without CRM modules
-  * orocommerce-platform-application - OroCommerce Enterprise Edition, with additional marketplace modules
+## 🚀 Getting Started
+
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone <PROJECT_URL>
+cd project
+```
+
+---
+
+## 🐳 Starting Docker Services
+
+Start all containers:
+
+```bash
+docker compose up -d
+```
+
+Wait until all services (`php`, `pgsql`, `redis`, `mailcatcher`) are up and healthy.
+
+---
+
+## 🧰 Accessing the PHP Container
+
+Enter the PHP container to execute Oro commands:
+
+```bash
+docker compose exec php bash
+```
+
+---
+
+## ⚙️ Installing Dependencies
+
+Inside the PHP container, install all dependencies:
+
+```bash
+composer install
+```
+
+---
+
+## 🏗️ Installing OroCommerce
+
+Run the full Oro installation command:
+
+```bash
+php bin/console oro:install   --env=dev   --timeout=600   --language=en   --formatting-code=en_US   --organization-name='AAXIS Test'   --user-name=admin   --user-email=admin@example.com   --user-firstname=Admin   --user-lastname=User   --user-password=admin   --application-url='http://localhost'   --sample-data=n
+```
+
+📝 **Note:**  
+This command initializes the database, creates the admin user, and runs all required migrations.
+
+---
+
+## 📦 Running the Custom Migration
+
+Run the custom migration that creates initial products and stock levels:
+
+```bash
+php bin/console axxis:product:create
+```
+
+This command will create products with SKUs `STOCK-001`, `STOCK-002`, etc., each with an initial stock quantity.
+
+---
+
+## 🌍 Running the Application Locally
+
+Start the local development server:
+
+```bash
+php -S 0.0.0.0:8000 -t public
+```
+
+---
+
+## 🧾 Accessing Product Endpoints
+
+Once the server is running, you can access products via your browser:
+
+- Product 1: [http://localhost:8000/stock/product/stock-001](http://localhost:8000/stock/product/stock-001)
+- Product 2: [http://localhost:8000/stock/product/stock-002](http://localhost:8000/stock/product/stock-002)
+
+---
+
+## 🧩 Project Structure
+
+```
+src/
+ └── Axxis/
+     └── Bundle/
+         └── StockBundle/
+             ├── Controller/
+             │   └── StockController.php
+             ├── Resources/
+             │   └── config/
+             │    │  └── oro/
+             │    │      └── bundles.yml 
+             │    │      └── routing.yml 
+             │    │  └── services.yml 
+             │   └── views/
+             │       └── stock/
+             │           └── index.html.twig
+             └── AxxisStockBundle.php
+```
+
+---
+
+## 💡 Tips
+
+- To **reset the database**, stop all containers and remove PostgreSQL volumes:
+  ```bash
+  docker compose down -v
+  ```
+- Then restart the stack and reinstall using:
+  ```bash
+  docker compose up -d
+  ```
+- Default database credentials are defined in `docker-compose.yml`:
+  ```
+  POSTGRES_USER=oro_db_user
+  POSTGRES_PASSWORD=oro_db_pass
+  POSTGRES_DB=oro_db
+  ```
+---
 
 
-  * orocommerce-application-de - German-localized version of OroCommerce Community Edition
-  * orocommerce-enterprise-application-de - German-localized version of OroCommerce Enterprise Edition
-
-
-  * platform-application - OroPlatform Community Edition, without eCommerce/CRM/marketplace modules
-  * crm-application - OroCRM Community Edition, without eCommerce/marketplace modules
-  * crm-enterprise-application - OroCRM Enterprise Edition, without eCommerce/marketplace modules
-  * oromarketplace-application - legacy version (4.2 compatible) of OroCommerce Enterprise Edition with additional marketplace modules
-
-What is OroCommerce?
---------------------
-
-OroCommerce is an open-source Business to Business Commerce application built with flexibility in mind. It can be customized and extended to fit any B2B commerce needs.
-You can find out more about OroCommerce at [www.orocommerce.com](https://www.orocommerce.com/).
-
-System Requirements
--------------------
-
-Please see the OroCommerce online documentation for the complete list of [system requirements](https://doc.oroinc.com/backend/setup/system-requirements/).
-
-Installation
-------------
-
-Please see the [OroCommerce and OroCRM Community Edition Installation Guide](https://doc.oroinc.com/backend/setup/dev-environment/manual-installation/commerce-ce/) for the detailed installation steps.
-
-Resources
----------
-
-  * [OroCommerce Documentation](https://doc.oroinc.com)
-  * [Contributing](https://doc.oroinc.com/community/contribute/)
-
-License
--------
- 
-[OSL-3.0](LICENSE) Copyright (c) 2024 Oro Inc.

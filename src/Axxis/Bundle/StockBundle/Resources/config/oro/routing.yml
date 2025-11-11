@@ -1,0 +1,6 @@
+axxis_stock_frontend:
+  resource: "@AxxisStockBundle/Controller/Frontend/"
+  type: annotation
+  prefix: /
+  options:
+    frontend: true

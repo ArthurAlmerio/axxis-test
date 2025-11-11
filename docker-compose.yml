@@ -1,5 +1,14 @@
 version: '3.5'
 services:
+  php:
+    build:
+      dockerfile: devops/php/Dockerfile
+    container_name: php
+    volumes:
+      - ./:/app/:rw
+      - ./devops/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - "8000:8000"
   pgsql:
     image: oroinc/pgsql:13.7-1-alpine
     ports: ['5432']

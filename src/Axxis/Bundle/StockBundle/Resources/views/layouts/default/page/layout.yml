@@ -1,0 +1,8 @@
+layout:
+  actions:
+    - '@add':
+        id: axxis_stock_info
+        parentId: page_content
+        blockType: axxis_stock_info
+        options:
+          sku: 'PROD123'
