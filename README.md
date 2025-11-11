@@ -3,6 +3,26 @@
 This project is based on **OroCommerce 6.1.0**, running in a **Docker** environment.  
 It includes a custom bundle (`AxxisStockBundle`) that displays product stock levels via a public endpoint.
 
+## 🧱 Prerequisites
+
+Before getting started, make sure you have the following installed:
+
+- **Git** → [https://git-scm.com/downloads](https://git-scm.com/downloads)
+- **Docker & Docker Compose** → [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
+If you’re new to Docker, follow this quick setup guide:
+
+### 🐳 Docker Installation Guide
+
+#### On Windows or macOS
+1. Go to [Docker Desktop Download](https://docs.docker.com/desktop/).
+2. Download and install **Docker Desktop** for your system.
+3. Start Docker Desktop and ensure it’s running.
+
+#### On Linux (Ubuntu/Debian)
+1. Go to [Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+2. Follow the instructions
+3. Ensure it’s running.
 ---
 
 ## 🚀 Getting Started
