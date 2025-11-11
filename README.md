@@ -10,8 +10,8 @@ It includes a custom bundle (`AxxisStockBundle`) that displays product stock lev
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone <PROJECT_URL>
-cd project
+git clone https://github.com/ArthurAlmerio/axxis-test.git
+cd axxis-test
 ```
 
 ---
