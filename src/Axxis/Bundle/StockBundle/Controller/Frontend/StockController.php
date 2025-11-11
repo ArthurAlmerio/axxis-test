@@ -19,7 +19,7 @@ class StockController extends AbstractController
 
         if (!$product) {
             return $this->render('@AxxisStock/Stock/index.html.twig', [
-                'message' => sprintf('Produto com SKU "%s" não encontrado.', $sku),
+                'message' => sprintf('Product with SKU "%s" not found.', $sku),
                 'stock' => null,
             ]);
         }

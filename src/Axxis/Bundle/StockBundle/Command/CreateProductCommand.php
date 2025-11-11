@@ -31,7 +31,7 @@ class CreateProductCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('<info>Criando produto de exemplo...</info>');
+        $output->writeln('<info>Creating products...</info>');
 
         $product = new Product();
         $product->setSku('stock-001');
