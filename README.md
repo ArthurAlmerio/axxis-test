@@ -3,7 +3,7 @@
 This project is based on **OroCommerce 6.1.0**, running in a **Docker** environment.  
 It includes a custom bundle (`AxxisStockBundle`) that displays product stock levels via a public endpoint.
 
-## 🧱 Prerequisites
+## 🧱 Requirements
 
 Before getting started, make sure you have the following installed:
 
@@ -89,7 +89,7 @@ Run the custom migration that creates initial products and stock levels:
 php bin/console axxis:product:create
 ```
 
-This command will create products with SKUs `STOCK-001`, `STOCK-002`, etc., each with an initial stock quantity.
+This command will create products with SKUs `STOCK-001`, `STOCK-002`, each with an initial stock quantity.
 
 ---
 
